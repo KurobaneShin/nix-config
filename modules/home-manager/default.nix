@@ -7,7 +7,8 @@
     ./zsh.nix
     ./starship.nix
     ./nvim.nix
-  ]; 
+    ./kitty.nix
+  ];
   #  programs.zsh = {
   #   enable = true;
   #   enableCompletion = true;
