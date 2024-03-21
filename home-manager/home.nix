@@ -65,6 +65,11 @@
     enable = true;
     userName = "KurobaneShin";
     userEmail = "darkflamemaster66#@gmail.com";
+    aliases = {
+      c = "commit";
+      ck = "checkout";
+      l = "log";
+    };
     extraConfig = {
       push = {autoSetupRemote = true;};
     };

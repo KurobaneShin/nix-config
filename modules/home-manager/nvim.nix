@@ -3,15 +3,15 @@
   config,
   lib,
   ...
-}:{
-     programs.neovim = {
+}: {
+  programs.neovim = {
     enable = true;
     vimAlias = true;
     vimdiffAlias = true;
     defaultEditor = true;
   };
 
-    xdg.configFile."nvim" = {
+  xdg.configFile."nvim" = {
     source = ../../config/nvim;
     recursive = true;
   };
@@ -42,7 +42,7 @@
     # nix
     nil
     alejandra
-    ];
+  ];
 
   home.packages = with pkgs; [
     (writeShellScriptBin "clean-nvim" ''
@@ -57,5 +57,4 @@
       rm -rf ${config.xdg.configHome}/nvim
     '')
   ];
-    
 }
