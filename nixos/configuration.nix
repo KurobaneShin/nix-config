@@ -156,6 +156,7 @@
         docker-compose
         nodejs
         nodePackages.firebase-tools
+        nodejs.passthru.python
         ripgrep
         kitty
         neofetch
@@ -171,6 +172,13 @@
         bun
         xorg.xkill
         go
+        gh
+        steam-run
+        gcc
+        fnm
+        pkgs.biome
+        curl
+        nix-ld
         #  thunderbird
       ];
     };
@@ -191,5 +199,5 @@
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }

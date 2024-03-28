@@ -29,4 +29,14 @@ local options = {
   },
 }
 
+local conform = require("conform")
+
+conform.formatters.biome = {
+  command = "biome",
+}
+
+conform.formatters["biome-check"] = {
+  command = "biome",
+}
+
 require("conform").setup(options)

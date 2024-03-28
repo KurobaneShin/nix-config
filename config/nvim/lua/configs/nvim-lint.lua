@@ -11,6 +11,10 @@ lint.linters_by_ft = {
 }
 
 local eslint = lint.linters.eslint_d
+
+-- local biome = lint.linters.biomejs
+--
+-- biome.cmd = "biome"
 -- local biome = lint.linters.biome
 
 eslint.args = {

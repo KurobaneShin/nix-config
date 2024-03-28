@@ -5,5 +5,6 @@
   # my-module = import ./my-module.nix;
   imports = [
     ./docker.nix
+    ./nix-ld.nix
   ];
 }
