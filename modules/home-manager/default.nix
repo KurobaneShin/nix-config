@@ -8,6 +8,7 @@
     ./starship.nix
     ./nvim.nix
     ./kitty.nix
+    ./firefox.nix
   ];
   #  programs.zsh = {
   #   enable = true;
