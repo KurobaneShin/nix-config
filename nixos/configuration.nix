@@ -69,6 +69,9 @@
     experimental-features = "nix-command flakes";
     # Deduplicate and optimize nix store
     auto-optimise-store = true;
+
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
   # FIXME: Add the rest of your current configuration
@@ -180,9 +183,39 @@
         curl
         nix-ld
         #  thunderbird
+        hyprland
+        dunst
+        libnotify
+        waybar
+        (
+          pkgs.waybar.overrideAttrs (oldAttrs: {
+            mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+          })
+        )
+        swww
+        rofi-wayland
       ];
     };
   };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
+
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
+
+  hardware = {
+    opengl.enable = true;
+    nvidia.modesetting.enable = true;
+  };
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
   programs.zsh.enable = true;
 

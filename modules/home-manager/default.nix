@@ -9,16 +9,6 @@
     ./nvim.nix
     ./kitty.nix
     ./firefox.nix
+    ./hyprland.nix
   ];
-  #  programs.zsh = {
-  #   enable = true;
-  #   enableCompletion = true;
-  #   enableAutosuggestions = true;
-  #   # syntaxHighlighting.enable = true;
-  # };
-
-  # programs.starship = {
-  #   enable = true;
-  #   enableZshIntegration = true;
-  # };
 }

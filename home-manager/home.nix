@@ -54,7 +54,12 @@
   };
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  # home.packages = with pkgs; [steam steam-run pkgs.nodejs_20 nix-ld];
+  home.packages = with pkgs; [
+    wofi
+    waybar
+    swww
+    hyprland
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
