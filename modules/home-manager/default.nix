@@ -10,5 +10,6 @@
     ./kitty.nix
     ./firefox.nix
     ./hyprland.nix
+    ./wofi.nix
   ];
 }
