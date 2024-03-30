@@ -56,9 +56,7 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
     wofi
-    waybar
-    swww
-    hyprland
+    eww-wayland
   ];
 
   # Enable home-manager and git

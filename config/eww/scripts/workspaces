@@ -1,0 +1,61 @@
+#!/bin/sh
+# dynamic workspaces by XXiaoA
+# reference: https://github.com/Prayag2/bspdd/
+
+monitor_sel=""
+
+workspaces() {
+    if [[ -z $monitor_sel ]]; then
+        monitors=$(bspc query -M)
+    else
+        monitors=$(bspc query -M -m "$monitor_sel")
+    fi
+
+    echo "$monitors" | while read monitor; do
+        total_desktops=$(bspc query -D -m "$monitor" | wc -l)
+        occupied_desktops=$(bspc query -D -d ".occupied" -m "$monitor" | wc -l)
+
+        if [[ $occupied_desktops -eq $total_desktops ]]; then
+            # add new desktop
+            bspc monitor "$monitor" -a "$((occupied_desktops + 1))"
+        elif [[ $occupied_desktops -lt $((total_desktops-1)) ]]; then
+            # remove unoccupied desktops
+            bspc query -D -d ".!occupied" -m "$monitor" | sed '$d' | while read desktopID; do
+                bspc desktop "$desktopID" -r
+            done
+            # rename the desktops to prevent the issue of removing a middle desktop
+            desktop_name=1
+            # note the argument of sed
+            bspc query -D -m "$monitor" | sed '$n' | while read desktopID; do
+                bspc desktop "$desktopID" --rename "$desktop_name"
+                desktop_name=$((desktop_name+1))
+            done
+        fi
+
+        echo -n "(eventbox :cursor 'pointer' (box :class 'works' :orientation 'h' :spacing 5 :space-evenly 'false' "
+        for i in $(seq 1 $occupied_desktops); do
+            # check if Focused
+            f=$(bspc query -D -d focused --names | grep "$i" )
+            if [ $f ]; then
+                echo -n "(button :onclick 'bspc desktop -f $i' :class 'work_focus' '') "
+            else
+                echo -n "(button :onclick 'bspc desktop -f $i' :class 'work_unfocus' '') "
+            fi
+        done
+        # for the new unoccupied desktop
+        f=$(bspc query -D -d focused --names | grep "$((occupied_desktops+1))" )
+        if [ $f ]; then
+            echo -n "(button :onclick 'bspc desktop -f $((occupied_desktops+1))' :class 'work_focus' '') "
+        else
+            echo -n "(button :onclick 'bspc desktop -f $((occupied_desktops+1))' :class 'work_unoccupied' '') "
+        fi
+        echo "))"
+
+    done;
+
+}
+
+workspaces
+bspc subscribe desktop_focus node_add node_remove node_transfer 2> /dev/null | while read line; do
+    workspaces
+done
