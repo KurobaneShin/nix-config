@@ -214,8 +214,8 @@
     nvidia.modesetting.enable = true;
   };
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  # xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
   programs.zsh.enable = true;
 
