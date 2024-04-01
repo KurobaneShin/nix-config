@@ -59,6 +59,7 @@
     bspwm
     killall
     grimblast
+    imagemagick
   ];
 
   # Enable home-manager and git

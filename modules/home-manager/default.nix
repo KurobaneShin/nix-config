@@ -13,5 +13,6 @@
     ./wofi.nix
     ./waybar.nix
     ./dunst.nix
+    ./neofetch.nix
   ];
 }
