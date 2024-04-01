@@ -56,7 +56,6 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
     wofi
-    eww-wayland
     bspwm
     killall
   ];
