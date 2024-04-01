@@ -57,6 +57,8 @@
   home.packages = with pkgs; [
     wofi
     eww-wayland
+    bspwm
+    killall
   ];
 
   # Enable home-manager and git

@@ -24,6 +24,11 @@ lspconfig.tsserver.setup {
 
 --test htmx lsp
 lspconfig.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
     gopls = {
       analyses = {
@@ -31,6 +36,8 @@ lspconfig.gopls.setup {
       },
       staticcheck = true,
       gofumpt = true,
+      completeUnimported = true,
+      usePlaceholders = true,
     },
   },
 }

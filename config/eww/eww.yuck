@@ -1,3 +1,0 @@
-(include "yuck/bar.yuck")
-(include "yuck/player.yuck")
-(include "yuck/powermenu.yuck")

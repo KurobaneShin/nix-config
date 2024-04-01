@@ -11,6 +11,6 @@
     ./firefox.nix
     ./hyprland.nix
     ./wofi.nix
-    ./eww.nix
+    ./waybar.nix
   ];
 }
