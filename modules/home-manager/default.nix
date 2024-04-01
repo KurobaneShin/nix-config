@@ -12,5 +12,6 @@
     ./hyprland.nix
     ./wofi.nix
     ./waybar.nix
+    ./dunst.nix
   ];
 }
