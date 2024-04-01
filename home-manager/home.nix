@@ -58,6 +58,7 @@
     wofi
     bspwm
     killall
+    grimblast
   ];
 
   # Enable home-manager and git
