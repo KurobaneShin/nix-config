@@ -443,7 +443,7 @@
         },
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
-        "on-click": "pavucontrol",
+        "on-click": "~/.config/waybar/audio_changer.py",
     },
 },
 ]
