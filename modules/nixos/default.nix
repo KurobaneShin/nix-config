@@ -6,5 +6,6 @@
   imports = [
     ./docker.nix
     ./nix-ld.nix
+    ./transmission.nix
   ];
 }

@@ -148,6 +148,9 @@
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
+      openssh.authorizedKeys.keyFiles = [
+        ../id_rsa.pub
+      ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["networkmanager" "wheel" "docker"];
       shell = pkgs.zsh;
@@ -194,6 +197,7 @@
         )
         swww
         rofi-wayland
+        transmission-gtk
       ];
     };
   };
