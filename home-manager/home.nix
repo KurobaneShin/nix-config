@@ -59,7 +59,9 @@
     bspwm
     killall
     grimblast
-    imagemagick
+    transmission-gtk
+    nodePackages.localtunnel
+    dbeaver
   ];
 
   # Enable home-manager and git
@@ -67,11 +69,11 @@
   programs.git = {
     enable = true;
     userName = "KurobaneShin";
-    userEmail = "darkflamemaster66#@gmail.com";
+    userEmail = "darkflamemaster663@gmail.com";
     aliases = {
-      c = "commit";
+      c = "!git add -A && git commit -m";
       ck = "checkout";
-      l = "log";
+      l = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
     };
     extraConfig = {
       push = {autoSetupRemote = true;};

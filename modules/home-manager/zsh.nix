@@ -3,8 +3,6 @@
     enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    # syntaxHighlighting.enable = true;
-
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";

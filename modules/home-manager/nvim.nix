@@ -42,6 +42,7 @@
     # nix
     nil
     alejandra
+    wl-clipboard
   ];
 
   home.packages = with pkgs; [
